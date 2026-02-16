@@ -19,7 +19,7 @@ create TABLE Team (
     Team_id int IDENTITY(1,1)
         CONSTRAINT PK_Team PRIMARY KEY,
     TeamName NVARCHAR(50) NOT NULL,
-    TeamCity NVARCHAR(50) NOT NULL,
+    TeamCityState NVARCHAR(50) NOT NULL,
     TeamColors NVARCHAR(50) not null,
     ConferenceDivisionID INT NOT NULL,
         CONSTRAINT FK_TEAM_ConferenceDivision FOREIGN KEY (ConferenceDivisionID) REFERENCES ConferenceDivision(ConferenceDivisionID)
