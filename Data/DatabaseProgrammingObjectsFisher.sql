@@ -50,6 +50,8 @@ END
 GO
 
 -- find all Teams in my team's division (user optionally providdes their team name)
+
+/*
 create or alter procedure procGetTeamsByTeamName
 (
     @TeamName NVARCHAR(50) = null
@@ -61,3 +63,16 @@ BEGIN
     from Team as T
     inner join ConferenceDivision as CD on T.ConferenceDivisionID = CD.ConferenceDivisionID
     where CD.ConferenceDivisionID = (select ConferenceDivisionID from Team where TeamName = @TeamName)
+
+END
+*/
+
+
+
+DECLARE @TeamName NVARCHAR(50) = 'Steelers';
+Select OtherTeam.TeamName
+from Team as T inner join ConferenceDivision as CD on T.ConferenceDivisionID = CD.ConferenceDivisionID
+where T.TeamName = @myTeamName
+
+
+-- add conference name and division name as well.
