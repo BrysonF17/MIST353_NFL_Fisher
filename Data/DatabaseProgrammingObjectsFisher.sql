@@ -26,6 +26,8 @@ order by CD.Conference, CD.Division;
 
 */
 
+use master
+
 use mist353_nfl_fisher;
 
 GO
@@ -76,3 +78,5 @@ where T.TeamName = @myTeamName
 
 
 -- add conference name and division name as well.
+
+
