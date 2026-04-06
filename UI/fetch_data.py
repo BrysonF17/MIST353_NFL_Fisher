@@ -1,0 +1,18 @@
+import streamlit as st
+import requests
+
+FAST_URL = "http://localhost:8000"  # Adjust if your API is hosted elsewhere
+
+def fetch_data(endpoint: str, input_params: dict, method: str = "GET"):
+    if method == "GET":
+        response = requests.get(f"{FAST_URL}/{endpoint}", params=input_params)
+
+    if response.status_code == 200:
+        payload = response.json()
+        rows = payload.get("data", [])
+        df = pd.DataFrame(rows)
+        return df
+    else:
+        st.error(f"Error fetching data: {response.status_code} - {response.text}")
+        return pd.DataFrame()
+   
