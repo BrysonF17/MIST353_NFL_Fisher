@@ -1,8 +1,10 @@
 import os
 import pyodbc
 from dotenv import load_dotenv
+from pathlib import Path
 
-load_dotenv()
+# Load .env from the API directory
+load_dotenv(Path(__file__).parent / ".env")
 
 def get_db_connection():
     server = os.getenv("DB_SERVER")

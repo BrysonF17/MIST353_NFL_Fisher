@@ -60,3 +60,20 @@ BEGIN
     where Email = @Email and 
     PasswordHash = convert(varbinary(200), @PasswordHash, 1);
 END
+
+go
+
+    CREATE OR ALTER PROCEDURE procGetTeamsForSpecifiedFan(
+    @NFLFanID INT
+)
+AS
+BEGIN
+    SELECT T.TeamName, CD.Conference, CD.Division, T.TeamColors
+    FROM FanTeam FT
+    INNER JOIN Team T ON FT.TeamID = T.TeamID
+    INNER JOIN ConferenceDivision CD ON T.ConferenceDivisionID = CD.ConferenceDivisionID
+    WHERE FT.NFLFanID = @NFLFanID;
+END;
+
+--execute procGetTeamsForSpecifiedFan @NFLFanID = 1;
+--execute procGetTeamsForSpecifiedFan @NFLFanID = 2;

@@ -1,4 +1,4 @@
-from get_db_connection import get_db_connection
+from .get_db_connection import get_db_connection
 
 
 def validate_user(
@@ -9,14 +9,14 @@ def validate_user(
 
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("{call proValidateUser(?, ?)}", (email, password_hash))
+    cursor.execute("{call procValidateUser(?, ?)}", (email, password_hash))
     rows = cursor.fetchall()
     conn.close()
    
     #convert pyodbc.Row objects to dicts
     results = [
       {  "AppUserID": row.AppUserID,
-        "Fullname": row.Fullname,
+        "FullName": row.FullName,
         "UserRole": row.UserRole
       }
       for row in rows
