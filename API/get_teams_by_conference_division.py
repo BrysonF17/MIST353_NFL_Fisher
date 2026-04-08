@@ -5,7 +5,7 @@ def get_teams_by_conference_division(
     division: str = None):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("EXEC procGetTeamsByConferenceDivision @ConferenceName=?, @DivisionName=?", conference, division)
+    cursor.execute("{call procGetTeamsByConferenceDivision(?, ?)}", (conference, division))
     rows = cursor.fetchall()
     conn.close()
 
