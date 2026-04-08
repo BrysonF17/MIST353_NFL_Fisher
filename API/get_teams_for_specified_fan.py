@@ -8,7 +8,7 @@ def get_teams_for_specified_fan(nfl_fan_id: int):
         nfl_fan_id (int): The ID of the NFL fan
     
     Returns:
-        list: A list of dictionaries containing team information
+        list: A list containing team information
     """
     conn = get_db_connection()
     cursor = conn.cursor()
