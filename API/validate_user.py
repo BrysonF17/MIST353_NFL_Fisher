@@ -1,5 +1,5 @@
 from .get_db_connection import get_db_connection
-
+import pymssql
 
 def validate_user(
     email: str,
@@ -8,8 +8,8 @@ def validate_user(
 
 
     conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute("{call procValidateUser(?, ?)}", (email, password_hash))
+    cursor = conn.cursor(as_dict=True)
+    cursor.callproc("procValidateUser", (email, password_hash))
     rows = cursor.fetchall()
     conn.close()
    

@@ -3,6 +3,7 @@ from API.validate_user import validate_user
 from API.get_teams_by_conference_division import get_teams_by_conference_division
 from API.get_teams_in_same_conference_division_as_specified_team import get_teams_in_same_conference_division_as_specified_team
 from API.get_teams_for_specified_fan import get_teams_for_specified_fan
+import pymssql
 
 
 app = FastAPI()
