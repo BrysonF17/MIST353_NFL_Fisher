@@ -1,4 +1,4 @@
-from API.get_db_connection import get_db_connection
+from get_db_connection import get_db_connection
 import pymssql
 def get_teams_for_specified_fan(nfl_fan_id: int):
     """

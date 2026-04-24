@@ -12,11 +12,11 @@ def get_teams_by_conference_division_ui():
     division = st.text_input("Enter Division (East, West, North, South)")
 
     if st.button("Fetch Teams"):
-            input params = {}
+            input_params = {}
             if conference.strip():
-            input_params["conference"] = conference
-             if conference.strip():
-            input_params["division"] = division
+                input_params["conference"] = conference
+            if division.strip():
+                input_params["division"] = division
             df = fetch_data("get_teams_by_conference_division/", input_params)
 
         if df is not None and not df.empty:
