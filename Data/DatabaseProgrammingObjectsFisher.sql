@@ -83,3 +83,5 @@ END;
 --execute procGetTeamsForSpecifiedFan @NFLFanID = 1;
 --execute procGetTeamsForSpecifiedFan @NFLFanID = 2;
 
+-- delete from Game where GameID = 12;
+

@@ -258,6 +258,18 @@ VALUES
     (6, 10, '2026-04-23 02:14:45.890', 'Insert', 'Sean McVay scheduled a new game with GameID 10: Chicago Bears vs Los Angeles Rams on 2026-01-18 at 18:30:00.0000000 in stadium  Soldier Field. Game round: Divisional'),
     (7, 10, '2026-04-23 02:14:49.420', 'Update', 'Scores updated by Mike Tomlin for GameID=10: Home=Chicago Bears (17), Away=Los Angeles Rams (20), WinningTeam=Los Angeles Rams');
 
+GO
+
+execute procScheduleGame 
+    @GameRound = 'Wild Card',
+    @HomeTeamID = 13, -- Carolina Panthers
+    @AwayTeamID = 11, -- Los Angeles Rams
+    @GameDate = '2025-01-25',
+    @GameStartTime = '15:30',
+    @StadiumID = 13, -- Bank of America Stadium
+    @NFLAdminID = 5; -- Bill Belichick
+
+GO
 
 
 -- select * from AdminChangesTracker
@@ -280,11 +292,22 @@ VALUES
     @NFLAdminID = 5; -- Bill Belichick
 
 
-    @GameID = 11, 
+    @GameID = 14, 
     @HomeTeamScore = 7,
     @AwayTeamScore = 10,
     @NFLAdminID = 6; -- Sean McVay
 */
+
+-- procedureEnterScores parameters:
+--@GameID INT,
+--@HomeTeamScore INT,
+--@AwayTeamScore INT,
+--@NFLAdminID INT
+
+-- trigger to track changes made by NFLAdmin to the Game table
+-- trgTrackChangesOnEneteringScores
+-- 1. triggering event: update on the Game table
+-- 2. 
 
 
 -- NFC Championship: (5) LA Rams at (1) Seattle Seahawks
