@@ -28,3 +28,4 @@ def schedule_game(
             return {"status_message": f"Error scheduling game: {e}"}
     finally:
         conn.close()
+        #test comment
