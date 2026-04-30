@@ -104,6 +104,7 @@ BEGIN
     values (@HomeTeamID, @AwayTeamID, @GameRound, @GameDate, @GameStartTime, @StadiumID);
 END
 
+<<<<<<< HEAD
 /*
 GameRound: 'Wild Card', HomeTeamID: 22, AwayTeamID: 30, GameDate: '2026-01-10', GameStartTime: '16:30', StadiumID: 22, 
 NFLAdminID for scheduling: 5 (Bill Belichick)
@@ -229,3 +230,7 @@ end
 
 
 -- execute procGetAllChangesMadeBySpecifiedAdmin @NFLAdminID = 5; -- Bill Belichick
+=======
+-- delete from Game where GameID = 12;
+
+>>>>>>> a23255a68aa5be9789d50aa3c003330053ccaca4
